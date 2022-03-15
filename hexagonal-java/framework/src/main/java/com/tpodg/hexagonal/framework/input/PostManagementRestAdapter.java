@@ -31,21 +31,21 @@ public class PostManagementRestAdapter {
 
     @POST
     public PostDto create(PostDto post) {
-        Post created = postManagementUseCase.persist(postManagementUseCase.create(post.title(), post.content()));
+        Post created = postManagementUseCase.create(post.title(), post.content());
         return new PostDto(created.id(), created.title(), created.content());
     }
 
     @POST
     @Path("/{id}/comment")
     public CommentDto comment(@PathParam("id") Long postId, CommentDto comment) {
-        Comment created = postManagementUseCase.addComment(new Comment(null, comment.content(), postId));
+        Comment created = postManagementUseCase.commentOnPost(postId, comment.content());
         return new CommentDto(created.id(), created.content(), created.postId());
     }
 
     @GET
     @Path("/{id}/comments")
     public Collection<CommentDto> comments(@PathParam("id") Long postId) {
-        Collection<Comment> comments = postManagementUseCase.listComments(postId);
+        Collection<Comment> comments = postManagementUseCase.listPostComments(postId);
         return comments.stream()
                 .map(comment -> new CommentDto(comment.id(), comment.content(), comment.postId()))
                 .collect(Collectors.toSet());

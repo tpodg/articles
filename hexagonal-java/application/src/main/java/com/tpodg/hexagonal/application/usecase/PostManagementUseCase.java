@@ -8,11 +8,9 @@ import java.util.Collection;
 public interface PostManagementUseCase {
     Post create(String title, String content);
 
-    Post persist(Post post);
-
     Post retrieve(Long id);
 
-    Comment addComment(Comment comment);
+    Comment commentOnPost(Long postId, String content);
 
-    Collection<Comment> listComments(Long id);
+    Collection<Comment> listPostComments(Long id);
 }

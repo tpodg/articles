@@ -18,11 +18,7 @@ public class PostManagementInputPort implements PostManagementUseCase {
 
     @Override
     public Post create(String title, String content) {
-        return new Post(null, title, content, Collections.emptySet());
-    }
-
-    @Override
-    public Post persist(Post post) {
+        Post post = new Post(null, title, content, Collections.emptySet());
         return outputPort.persist(post);
     }
 
@@ -32,12 +28,12 @@ public class PostManagementInputPort implements PostManagementUseCase {
     }
 
     @Override
-    public Comment addComment(Comment comment) {
-        return outputPort.addComment(comment);
+    public Comment commentOnPost(Long postId, String content) {
+        return outputPort.addComment(new Comment(null, content, postId));
     }
 
     @Override
-    public Collection<Comment> listComments(Long id) {
+    public Collection<Comment> listPostComments(Long id) {
         return outputPort.listComments(id);
     }
 }
