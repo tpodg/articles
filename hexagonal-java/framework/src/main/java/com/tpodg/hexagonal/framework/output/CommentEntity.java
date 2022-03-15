@@ -1,10 +1,12 @@
 package com.tpodg.hexagonal.framework.output;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "comment")
-class CommentEntity {
+class CommentEntity extends PanacheEntityBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "comment_generator")

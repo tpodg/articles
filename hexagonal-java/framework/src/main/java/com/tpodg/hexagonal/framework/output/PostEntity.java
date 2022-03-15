@@ -1,12 +1,14 @@
 package com.tpodg.hexagonal.framework.output;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.HashSet;
 
 @Entity
 @Table(name = "post")
-class PostEntity {
+class PostEntity extends PanacheEntityBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "post_generator")
