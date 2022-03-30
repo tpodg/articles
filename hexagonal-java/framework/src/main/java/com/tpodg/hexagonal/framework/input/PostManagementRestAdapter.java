@@ -1,8 +1,8 @@
 package com.tpodg.hexagonal.framework.input;
 
 import com.tpodg.hexagonal.application.port.PostManagementService;
-import com.tpodg.hexagonal.application.port.output.PostManagementOutputPort;
 import com.tpodg.hexagonal.application.port.input.PostManagementUseCase;
+import com.tpodg.hexagonal.application.port.output.PostManagementOutputPort;
 import com.tpodg.hexagonal.domain.entity.Comment;
 import com.tpodg.hexagonal.domain.entity.Post;
 
