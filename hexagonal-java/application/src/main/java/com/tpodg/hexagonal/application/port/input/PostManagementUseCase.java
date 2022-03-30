@@ -1,4 +1,4 @@
-package com.tpodg.hexagonal.application.usecase;
+package com.tpodg.hexagonal.application.port.input;
 
 import com.tpodg.hexagonal.domain.entity.Comment;
 import com.tpodg.hexagonal.domain.entity.Post;

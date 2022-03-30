@@ -1,8 +1,8 @@
 package com.tpodg.hexagonal.framework.input;
 
-import com.tpodg.hexagonal.application.port.input.PostManagementInputPort;
+import com.tpodg.hexagonal.application.port.PostManagementService;
 import com.tpodg.hexagonal.application.port.output.PostManagementOutputPort;
-import com.tpodg.hexagonal.application.usecase.PostManagementUseCase;
+import com.tpodg.hexagonal.application.port.input.PostManagementUseCase;
 import com.tpodg.hexagonal.domain.entity.Comment;
 import com.tpodg.hexagonal.domain.entity.Post;
 
@@ -19,7 +19,7 @@ public class PostManagementRestAdapter {
     private final PostManagementUseCase postManagementUseCase;
 
     public PostManagementRestAdapter(PostManagementOutputPort postManagementOutputPort) {
-        this.postManagementUseCase = new PostManagementInputPort(postManagementOutputPort);
+        this.postManagementUseCase = new PostManagementService(postManagementOutputPort);
     }
 
     @GET
@@ -36,7 +36,7 @@ public class PostManagementRestAdapter {
     }
 
     @POST
-    @Path("/{id}/comment")
+    @Path("/{id}/comments")
     public CommentDto comment(@PathParam("id") Long postId, CommentDto comment) {
         Comment created = postManagementUseCase.commentOnPost(postId, comment.content());
         return new CommentDto(created.id(), created.content(), created.postId());

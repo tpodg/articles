@@ -9,8 +9,7 @@ class CommentTest {
 
     @Test
     void validateContentLength() {
-        DomainException exception = assertThrows(DomainException.class,
-                () -> new Comment(null, "Too short", 1L));
+        DomainException exception = assertThrows(DomainException.class, () -> new Comment(null, "Too short", 1L));
         assertEquals("Content must contain at least 10 characters", exception.getMessage());
     }
 }

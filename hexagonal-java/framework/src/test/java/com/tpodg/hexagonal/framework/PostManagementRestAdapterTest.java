@@ -57,7 +57,7 @@ class PostManagementRestAdapterTest {
                             "content": "Great post!"
                         }
                         """)
-                .post("/posts/1/comment")
+                .post("/posts/1/comments")
                 .then()
                 .statusCode(200)
                 .body("id", notNullValue())

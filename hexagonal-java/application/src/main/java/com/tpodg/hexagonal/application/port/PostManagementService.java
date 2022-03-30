@@ -1,18 +1,18 @@
-package com.tpodg.hexagonal.application.port.input;
+package com.tpodg.hexagonal.application.port;
 
+import com.tpodg.hexagonal.application.port.input.PostManagementUseCase;
 import com.tpodg.hexagonal.application.port.output.PostManagementOutputPort;
-import com.tpodg.hexagonal.application.usecase.PostManagementUseCase;
 import com.tpodg.hexagonal.domain.entity.Comment;
 import com.tpodg.hexagonal.domain.entity.Post;
 
 import java.util.Collection;
 import java.util.Collections;
 
-public class PostManagementInputPort implements PostManagementUseCase {
+public class PostManagementService implements PostManagementUseCase {
 
     private final PostManagementOutputPort outputPort;
 
-    public PostManagementInputPort(PostManagementOutputPort outputPort) {
+    public PostManagementService(PostManagementOutputPort outputPort) {
         this.outputPort = outputPort;
     }
 
